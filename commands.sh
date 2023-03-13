@@ -39,17 +39,40 @@ apt install graphviz -y
 terraform graph | dot -Tsvg > graph.svg
 
 # lifecycle rules: syntax
-lifecycle {
+lifecycle 
+{
 	create_before_destroy = true
 }
 
 # ignore_chages rule
 # the ignore_chages argument accepts a list and it accepts any valid resource attributes
-lifecycle {
+lifecycle 
+{
 	ignore_chagnes = [
 		tags
 	]
 }
 # here the change made to the tags of a server outside of terraform will be completely ignored
-# ingnore_changes = all 
+# ingnore_changes = all  
+
+# Data sources
+"Data Sources: data sources allows terraform to read attributes of the resources which are provisioned outside its control"
+# the data block is similar to the resource block 
+# instead of a resource use data keyword
+data "local_file" "data" 
+{
+	filename = "/root/dog.txt"
+}
+
+# Meta Arguments
+"Meta arguments can be used in the any resource block to change the behavior of the resources"
+
+# Count: to create multiple instances of the local file is make use of count meta argument
+count = 3 # inside block
+
+
+
+
+
+
 
