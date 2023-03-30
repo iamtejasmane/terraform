@@ -71,6 +71,70 @@ data "local_file" "data"
 count = 3 # inside block
 
 
+# Terraform LOGS
+# to export the logs in a file
+TF_LOG_PATH
+
+# to export logs 
+TF_LOG 
+
+# Terraform Functions 
+
+# to read data from a file 
+file("filePath")
+
+# to read number of elements in a given list or map
+length(var.filename)
+
+#  convert a list into a set
+toset(var.region)
+
+# Terraform provides an interactive console
+terraform console
+
+# to return max
+max ( 1 , 2 , 3 )
+
+# to return min
+min ( 1 , 2 , 3 )
+
+# spread operator
+max (var.num...)
+
+# to return most closely number
+ceil(10.1) # => 10
+ceil(10.9) # => 11
+
+# to get the decimal point number
+floor(10.1) # => 10
+floor(10.9) # => 10
+
+
+# string function
+
+# to split the string
+split(",", "ami-zyx,AMI-ABC,ami-efg")
+split(",", var.ami)
+
+# convert string to lower and uppercese
+lower("")
+upper("")
+
+# find the index of the matching string
+index(var.ami, "AMI-ABC")
+
+# to find the element at index
+element(var.ami, 2)
+
+# to check if element is exists
+contains(var.ami, "AMI-ABC")
+
+
+
+
+# conditional expressions
+
+
 
 
 
